@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Keep Them Warm",
+    "description": "Provide your pets with cozy blankets, warm bedding, and ensure they stay indoors during chilly nights."
+  },
+  {
+    "id": 2,
+    "title": "Protect Their Paws",
+    "description": "Use paw balm or pet shoes to prevent frostbite and cracked pads from cold ground and snow."
+  },
+  {
+    "id": 3,
+    "title": "Hydrate Well",
+    "description": "Keep their water bowl filled with fresh, unfrozen water during winter."
+  },
+  {
+    "id": 4,
+    "title": "Balanced Diet",
+    "description": "Feed your pets nutritious meals to help them maintain energy and body heat during cold weather."
+  },
+  {
+    "id": 5,
+    "title": "Regular Checkups",
+    "description": "Cold weather can worsen arthritis. Schedule a vet visit to ensure your pet’s comfort."
+  }
+]

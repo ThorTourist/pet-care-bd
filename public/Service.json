@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Winter Grooming",
+    "image": "https://i.ibb.co/6X4gQpG/grooming.jpg",
+    "rating": 4.8,
+    "price": "$25"
+  },
+  {
+    "id": 2,
+    "name": "Cozy Sweater Tailoring",
+    "image": "https://i.ibb.co/yfP5b0G/sweater.jpg",
+    "rating": 4.7,
+    "price": "$15"
+  },
+  {
+    "id": 3,
+    "name": "Paw Protection Kit",
+    "image": "https://i.ibb.co/mBqk0hX/pawkit.jpg",
+    "rating": 4.9,
+    "price": "$20"
+  },
+  {
+    "id": 4,
+    "name": "Nutrition Check",
+    "image": "https://i.ibb.co/K7xYcS3/nutrition.jpg",
+    "rating": 4.6,
+    "price": "$30"
+  }
+]

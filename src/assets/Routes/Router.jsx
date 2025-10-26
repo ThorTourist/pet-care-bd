@@ -1,28 +1,38 @@
-import React from 'react';
+import React from "react";
+
+import Home from "../../Pages/Home/Home";
+import RootLayout from "../Layouts/RootLayout";
 import { createBrowserRouter } from "react-router";
-import RootLayout from '../Layouts/RootLayout';
-import Login from '../../Pages/Login/Login';
-import SignUp from '../../Pages/SignUp/SignUp';
-import Home from '../../Pages/Home/Home';
- 
+import Service from "../../Pages/Service/Service";
+import MyProfile from "../../Pages/MyProfile/MyProfile";
+import WinterTips from "../../Components/WinterTips";
+
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: <RootLayout></RootLayout>,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
-        path: "/login",
-        element: <Login />,
+        path: "/home",
+        element: <Home />,
       },
       {
-        path: "/signup",
-        element: <SignUp />,
+        path: "/service",
+        element: <Service />,
+      },
+      {
+        path: "/myprofile",
+        element: <MyProfile />,
+      },
+      {
+        path: "/wintertips",
+        element: <WinterTips />
       },
     ],
   },
