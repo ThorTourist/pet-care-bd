@@ -42,7 +42,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myprofile",
-        element: <MyProfile />,
+        element: (
+          <ProtectedRoute>
+            <MyProfile />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/wintertips",

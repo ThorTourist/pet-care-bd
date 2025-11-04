@@ -5,7 +5,7 @@ const ExpertVets = () => {
   const [vets, setVets] = useState([]);
 
   useEffect(() => {
-    fetch("/public/Vets.json")
+    fetch("/Vets.json")
       .then((res) => res.json())
       .then((data) => setVets(data))
       .catch((err) => console.error("Error loading vets:", err));

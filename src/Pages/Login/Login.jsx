@@ -3,10 +3,12 @@ import { auth, googleProvider } from "../../Firebase/firebase.init";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // Eye icons
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // Toggle state
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home";
@@ -38,7 +40,7 @@ const Login = () => {
     <div className="max-w-md mx-auto mt-16 p-6 bg-white shadow-lg rounded-lg">
       <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
 
-      <form onSubmit={handleLogin} className="flex flex-col gap-4">
+      <form onSubmit={handleLogin} className="flex flex-col gap-4 relative">
         <input
           type="email"
           placeholder="Email"
@@ -48,14 +50,27 @@ const Login = () => {
           required
         />
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="input input-bordered w-full"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="input input-bordered w-full pr-10"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <AiFillEyeInvisible size={20} />
+            ) : (
+              <AiFillEye size={20} />
+            )}
+          </button>
+        </div>
 
         <Link
           to="/forgot-password"

@@ -1,19 +1,17 @@
-// Import the functions you need from the SDKs you need
+// src/Firebase/firebase.init.js
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB_g6BdzUAu94mRisu7-jw3L1HamAZitI8",
-  authDomain: "pet-care-hospital-54fc5.firebaseapp.com",
-  projectId: "pet-care-hospital-54fc5",
-  storageBucket: "pet-care-hospital-54fc5.firebasestorage.app",
-  messagingSenderId: "939838554667",
-  appId: "1:939838554667:web:1a2ed203960f75e5d2606e",
+  apiKey: "AIzaSyATXk39e8rvd6UIUn00LI64Dvvi53abggA",
+  authDomain: "pet-care-bd-c2827.firebaseapp.com",
+  projectId: "pet-care-bd-c2827",
+  storageBucket: "pet-care-bd-c2827.firebasestorage.app",
+  messagingSenderId: "286369264233",
+  appId: "1:286369264233:web:86966a6e1c0b5b921728f8",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+export default app;

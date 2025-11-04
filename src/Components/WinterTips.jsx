@@ -4,7 +4,7 @@ const WinterTips = () => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
-    fetch("WinterTips.json") // JSON file inside public folder
+    fetch("/WinterTips.json") // JSON file inside public folder
       .then((res) => res.json())
       .then((data) => setTips(data))
       .catch((err) => console.error("Error loading tips:", err));

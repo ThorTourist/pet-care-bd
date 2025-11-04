@@ -59,7 +59,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/wintertips">
+        <Link  to="/wintertips">
           <button className="btn btn-outline hover:bg-gray-500 bg-purple-900 text-sm text-white p-1 md:px-4">
             {" "}
             WinterTips

@@ -7,12 +7,14 @@ import {
 } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // 👁️ icons
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // 👁️ toggle state
   const navigate = useNavigate();
 
   const validatePassword = (pwd) =>
@@ -33,7 +35,6 @@ const SignUp = () => {
         email,
         password
       );
-      // Set profile data immediately
       await updateProfile(userCredential.user, {
         displayName: name,
         photoURL: photo || undefined,
@@ -41,7 +42,7 @@ const SignUp = () => {
       toast.success("Account created successfully!", {
         position: "top-center",
       });
-      navigate("/profile"); // redirect to profile page
+      navigate("/profile");
     } catch (err) {
       toast.error(err.message, { position: "top-center" });
     }
@@ -49,7 +50,7 @@ const SignUp = () => {
 
   const handleGoogleSignup = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
+      await signInWithPopup(auth, googleProvider);
       toast.success("Logged in with Google!", { position: "top-center" });
       navigate("/profile");
     } catch (err) {
@@ -69,6 +70,7 @@ const SignUp = () => {
           onChange={(e) => setName(e.target.value)}
           required
         />
+
         <input
           type="email"
           placeholder="Email"
@@ -77,6 +79,7 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+
         <input
           type="text"
           placeholder="Photo URL"
@@ -84,14 +87,30 @@ const SignUp = () => {
           value={photo}
           onChange={(e) => setPhoto(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          className="input input-bordered w-full"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+
+        {/* 👁️ Password field with show/hide toggle */}
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="input input-bordered w-full pr-10"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500"
+          >
+            {showPassword ? (
+              <AiFillEyeInvisible size={20} />
+            ) : (
+              <AiFillEye size={20} />
+            )}
+          </button>
+        </div>
+
         <button type="submit" className="btn btn-primary w-full">
           Register
         </button>
